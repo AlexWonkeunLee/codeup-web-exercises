@@ -6,9 +6,39 @@
 </head>
 <body>
     <form method="POST" action="http://request-inspector.glitch.me/">
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="<Input email here>">
-
+        <label for="email">Email: </label>
+        <input type="text" name="email" id="email" placeholder="Input email here">
+        <br>
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" placeholder="Input password here">
+        <br>
+        <label for="bio">Bio: </label>
+        <br>
+        <textarea name="bio" id="bio" cols="30" rows="10" placeholder="Input bio here"></textarea>
+        <br>
+        <label for="billboard">How did you hear about us?<br>
+        <input id="billboard" type="checkbox" name="question1" value="a">Billboard<br>
+        </label>
+        <label for="radioad">
+        <input id="radioad" type="checkbox" name="question1" value="b">Radio Advertisement<br>
+        </label>
+        <label for="internetad">
+        <input id="internetad" type="checkbox" name="question1" value="c">Internet Advertisement<br>
+        </label>
+        <label for="other">
+        <input id="other" type="checkbox" name="question1" value="d">Other<br>
+        </label>
+        <br>
+        <label for="question2">Which is your preferred internet browser?
+        <select id="question2" name="question2">
+            <option value="chrome">Google Chrome</option>
+            <option value="firefox">Mozilla Firefox</option>
+            <option value="opera">Opera</option>
+            <option value="ie">Internet Explorer</option>
+        </select>
+        </label>
+        <br><br>
+        <input type="submit">
     </form>
 
 </body>
