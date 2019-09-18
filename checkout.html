@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+    <form method="POST" action="http://request-inspector.glitch.me/">
+        <label for="credit">Credit card number: </label>
+        <input id="credit" type="text" name="credit" placeholder="Enter credit card # here" required><br>
+        <label for="exp">Expiration Date(mo/yr): </label>
+        <input id="exp" type="text" name="exp" placeholder="Enter expiration date here" required><br>
+        <label for="security"></label>
+        <input id="security" type="password" name="security" placeholder="Enter security code here" required><br>
+        <label for="street">Billing Address Street</label>
+        <input id="street" type="text" name="street" placeholder="Enter street address here" required><br>
+        <label for="citystate">City,State: </label>
+        <input id="citystate" type="text" name="citystate" placeholder="Enter city,state here" required><br>
+        <label for="zip">Zipcode: </label>
+        <input id="zip" type="text" name="zip" placeholder="Enter zipcode here" required><br>
+        <input id="keep" type="checkbox" name="keep" value="yes">
+        <label for="keep">Keep this credit card on file for future transactions</label>
+        <button type="submit">Buy Now!</button>
+    </form>
+</body>
+</html>
