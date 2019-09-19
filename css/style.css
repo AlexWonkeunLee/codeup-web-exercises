@@ -14,7 +14,7 @@ h1.fancy-header{
     font-family: 'Lobster', cursive;
 }
 
-#motto {
+#Top {
     text-align: center;
     color: purple;
 }
@@ -42,7 +42,7 @@ li {
 
 table {
     table-layout: fixed;
-    width: 500px;
+    width: 50%;
     background-color: lightgrey;
     border: 1px black;
 }
@@ -55,7 +55,7 @@ th {
 }
 
 td {
-    padding-left: 60px;
+    padding-left: 100px;
     font-family:'Pathway Gothic One', sans-serif;
     border: 1px black;
 
