@@ -5,40 +5,69 @@ body {
     background-color: aliceblue;
     background-image: url("../img/mountain.jpeg");
     background-size: 500px 500px;
-    font-family: Tahoma, serif;
 }
 
 h1.fancy-header{
     text-align: center;
     color:purple;
     text-decoration: underline;
+    font-family: 'Lobster', cursive;
+}
+
+#motto {
+    text-align: center;
+    color: purple;
 }
 
 h2 {
     color:green;
     text-decoration: underline;
+    font-family: 'Prompt', sans-serif;
 }
 
 ol {
     list-style: upper-roman;
+    background-color: lightsalmon;
 }
 
 ul {
     list-style: square;
+    background-color: #0fb784;
+}
+
+li {
+    padding: 5px;
+    font-family: 'Pathway Gothic One', sans-serif;
 }
 
 table {
     table-layout: fixed;
     width: 500px;
+    background-color: lightgrey;
+    border: 1px black;
 }
 
 th {
     padding-bottom: 10px;
     color: blue;
+    font-family: 'Prompt', sans-serif;
+    border: 1px black;
 }
 
 td {
     padding-left: 60px;
+    font-family:'Pathway Gothic One', sans-serif;
+    border: 1px black;
+
+}
+
+.better {
+    font-size: large;
+}
+
+.best {
+    font-size: x-large;
+    font-family: 'Lobster', cursive;
 }
 
 a:link {
@@ -55,4 +84,26 @@ a:hover {
 
 a:active {
     color: green;
+}
+
+.top-nav {
+    background: var(--light-bg);
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+.nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-link {
+    color: var(--main-link-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-item {
+    display: inline-block;
+    padding: 0 1em 0 1em;
 }
