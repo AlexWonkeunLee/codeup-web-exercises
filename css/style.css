@@ -9,7 +9,7 @@ body {
 
 h1.fancy-header{
     text-align: center;
-    color:purple;
+    color: mediumpurple;
     text-decoration: underline;
     font-family: 'Lobster', cursive;
 }
@@ -20,19 +20,20 @@ h1.fancy-header{
 }
 
 h2 {
-    color:green;
+    color:lightskyblue;
     text-decoration: underline;
     font-family: 'Prompt', sans-serif;
 }
 
 ol {
     list-style: upper-roman;
-    background-color: lightsalmon;
+    background-color: lawngreen;
 }
 
 ul {
     list-style: square;
-    background-color: #0fb784;
+    background-color: darkblue;
+    color: white;
 }
 
 li {
@@ -71,11 +72,11 @@ td {
 }
 
 a:link {
-    color: blue;
+    color: lightskyblue;
 }
 
 a:visited {
-    color: purple;
+    color: white;
 }
 
 a:hover {
@@ -106,4 +107,21 @@ a:active {
 .nav-item {
     display: inline-block;
     padding: 0 1em 0 1em;
+}
+
+#small{
+    color: white;
+}
+
+#first {
+    background-image: url("../img/server.jpeg");
+}
+
+#second {
+    background-image: url("../img/view.jpeg");
+}
+
+#third {
+    background-image: url("../img/stuff.jpeg");
+    background-size: 300px 200px;
 }
