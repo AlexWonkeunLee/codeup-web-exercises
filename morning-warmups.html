@@ -18,11 +18,18 @@
         function areaTriangle(num1, num2, num3) {
             var perimeter = num1 + num2 + num3;
             var p = perimeter / 2;
-            var area = Math.sqrt(p * (p - num1) * (p - num2) * (p - gnum3));
+            var area = Math.sqrt(p * (p - num1) * (p - num2) * (p - num3));
             return area;
         }
 
+        //function to that returns the first element of an array
+        function returnFirst(array) {
+            return array[0];
+        }
+
         console.log(areaTriangle(5, 6, 7));
+        var theArray = [4,2,3];
+        console.log(returnFirst(theArray));
     </script>
 </body>
 </html>
