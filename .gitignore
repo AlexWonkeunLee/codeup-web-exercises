@@ -1,2 +1,6 @@
 .idea/*
+<<<<<<< HEAD
 *.iml--
+=======
+*.iml
+>>>>>>> f3996da... Finishing touches on html exercises
