@@ -37,12 +37,18 @@
             return string1 + string2 + string3;
         }
 
+        //function that calculates the area of a circle when given diameter
+        function areaCircle(diameter){
+            return .25 * Math.PI * diameter * diameter;
+        }
+
         console.log(areaTriangle(5, 6, 7));
         var theArray = [4,2,3];
         console.log(returnFirst(theArray));
         console.log(areaTriangle(20, 20, 20));
         console.log(equilateralArea(20));
         console.log(conStrings("ab", "cd", "ef"));
+        console.log(areaCircle(4));
 
 
     </script>
