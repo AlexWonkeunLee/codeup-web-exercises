@@ -41,6 +41,15 @@
         function areaCircle(diameter){
             return .25 * Math.PI * diameter * diameter;
         }
+        //function that returns perimeter of quadrilateral
+        function perimeterQuad(side1, side2, side3, side4){
+            return side1 + side2 + side3 + side4;
+        }
+
+        //function to return type of element
+        function returnType(thing){
+            return typeof(thing);
+        }
 
         console.log(areaTriangle(5, 6, 7));
         var theArray = [4,2,3];
@@ -49,6 +58,8 @@
         console.log(equilateralArea(20));
         console.log(conStrings("ab", "cd", "ef"));
         console.log(areaCircle(4));
+        var thing = true;
+        console.log(returnType(thing));
 
 
     </script>
