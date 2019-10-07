@@ -51,6 +51,11 @@
             return typeof(thing);
         }
 
+        //function to return true only when given positive even number
+        function isPositiveEven(num){
+            return num > 0 && num % 2 == 0;
+        }
+
         console.log(areaTriangle(5, 6, 7));
         var theArray = [4,2,3];
         console.log(returnFirst(theArray));
@@ -60,6 +65,10 @@
         console.log(areaCircle(4));
         var thing = true;
         console.log(returnType(thing));
+        console.log(isPositiveEven(4));
+        console.log(isPositiveEven(5));
+        console.log(isPositiveEven(-2));
+
 
 
     </script>
