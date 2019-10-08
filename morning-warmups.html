@@ -56,6 +56,12 @@
             return num > 0 && num % 2 == 0;
         }
 
+        //function that prompts user for number and returns true if greater than five
+        function promptGreaterFive(){
+            var num = prompt("Give a number please: ");
+            return num > 5;
+        }
+
         console.log(areaTriangle(5, 6, 7));
         var theArray = [4,2,3];
         console.log(returnFirst(theArray));
@@ -68,6 +74,7 @@
         console.log(isPositiveEven(4));
         console.log(isPositiveEven(5));
         console.log(isPositiveEven(-2));
+        console.log(promptGreaterFive());
 
 
 
