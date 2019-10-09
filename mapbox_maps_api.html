@@ -2,9 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <title>Mapbox Maps API</title>
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 90%;
+            height: 700px;
+        }
+    </style>
 </head>
 <body>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
+    <h1>My First Mapbox Map!</h1>
+    <label for="zoomLevel">Set Zoom to 5, 10, or 15</label>
+    <select id="zoomLevel" onchange="changeZoom()">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+    </select>
+    <button onclick="addMarker()" style="float: right">Add Markers</button>
+    <button onclick="clearMarker()" style="float: right">Clear Markers</button>
+
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id='map'></div>
+    <script>
+        markers = [];
+        accessToken = 'pk.eyJ1IjoiYWxleHdvbmtldW5sZWUiLCJhIjoiY2sxZ3N6eHpyMTQyejNtcDc4bjZkd2gxdiJ9.k9S0CzN8yzmYO4mRYUhLcA';
+        mapboxgl.accessToken = accessToken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-streets-v10',
+            zoom: 5,
+            center: [-157.9475, 21.3873]
+        });
+
+        var searching = new MapboxGeocoder({
+            accessToken: accessToken,
+            mapboxgl: mapboxgl,
+            marker: new mapboxgl.Marker()
+        });
+
+        map.addControl(searching);
+
+        map.doubleClickZoom.disable();
+        var foods = [
+            {
+                address: "546 Olive Avenue, Wahiawa, HI 96786",
+                popupHTML: "<img src='img/dongyang.png' alt='' width='100%' height='80%'>" +
+                            "<h2 style='color: red'>Dong Yang Inn</h2>" +
+                            "<p>Good Korean Food, but the real reason to come here is the MEAT JUN!!!!\n</p>" +
+                            "<img src='img/meat.png' alt='' width='100%' height='80%'>"
+            },
+            {
+                address: "98-1277 Kaahumanu St, Aiea, HI 96701",
+                popupHTML: "<img src='img/pho97.png' alt='' width='220' height='180'>" +
+                            "<h2 style='color: green'>Pho 97 One</h2>" +
+                            "<p>Great place if you like pho or vietnamese sandwiches. My go-to pho place</p>" +
+                            "<img src='img/pho.png' alt='' width='100%' height='80%'>"
+            },
+            {
+                address: "1910 Ala Moana Blvd, Honolulu, HI 96815",
+                popupHTML: "<img src='img/todai.png' alt='' width='100%' height='80%'>" +
+                            "<h2 style='color: blue'>Todai Restaurant</h2>" +
+                            "<p>Big Japanese Buffet. Huge variety of food especially the variety of sushi</p>" +
+                            "<img src='img/sushi.png' alt='' width='100%' height='80%'>"
+            }
+        ];
+
+        function placeMarkerAndPopup(info, token, map) {
+            geocode(info.address, token).then(function(coordinates) {
+                var popup = new mapboxgl.Popup()
+                    .setHTML(info.popupHTML);
+                var marker = new mapboxgl.Marker()
+                    .setLngLat(coordinates)
+                    .setPopup(popup)
+                    .addTo(map);
+                markers.push(marker);
+            });
+        }
+
+        foods.forEach(function(element){
+            placeMarkerAndPopup(element, accessToken, map);
+        });
+
+        function changeZoom(){
+            var zoom = document.getElementById("zoomLevel").value;
+            map.setZoom(zoom);
+        }
+
+        function addMarker(){
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].addTo(map);
+            }
+        }
+
+        function clearMarker(){
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].remove(map);
+            }
+        }
+
+    </script>
 
 </body>
 </html>
