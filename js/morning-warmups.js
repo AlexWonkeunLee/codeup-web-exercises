@@ -55,6 +55,15 @@ function promptGreaterFive(){
     return num > 5;
 }
 
+//function to return hello there something
+var stranger = "stranger";
+function helloStranger(stranger = "stranger"){
+    return "Hello there " + stranger;
+}
+alert(helloStranger(stranger));
+stranger = prompt("Please input string");
+alert(helloStranger(stranger));
+
 console.log(areaTriangle(5, 6, 7));
 var theArray = [4,2,3];
 console.log(returnFirst(theArray));
