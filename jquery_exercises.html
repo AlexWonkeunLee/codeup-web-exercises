@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Exercises</title>
+</head>
+<body>
+    <h1 id="header">HEADER HEADER HEADER HEADER</h1>
+    <p class="codeup">BLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAH</p>
+    <ul class="codeup">
+        <li id="codeup">1111111</li>
+        <li id="stuff2">222222222</li>
+        <li id="stuff3">33333333</li>
+        <li id="stuff4">444</li>
+    </ul>
+    <div class="codeup">BLARGH BLARGH BLARGH BLARGH</div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function() {
+            alert('The page has finished loading!');
+        }
+        $('li, h1, p').css({'font-size': '40px', 'color': 'green'});
+        var header = $('h1').css('background-color', 'blue').html();
+        alert(header);
+    </script>
+</body>
+</html>
