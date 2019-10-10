@@ -83,5 +83,5 @@ console.log(isPositiveEven(4));
 console.log(isPositiveEven(5));
 console.log(isPositiveEven(-2));
 console.log(promptGreaterFive());
-var array = [3,4,5,6];
+var array = [3,4,5,6,7];
 console.log(lengthArray(array));
