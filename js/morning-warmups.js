@@ -60,6 +60,12 @@ var stranger = "stranger";
 function helloStranger(stranger = "stranger"){
     return "Hello there " + stranger;
 }
+
+// function to return length of an array
+function lengthArray(array){
+    return array.length;
+}
+
 alert(helloStranger(stranger));
 stranger = prompt("Please input string");
 alert(helloStranger(stranger));
@@ -77,3 +83,5 @@ console.log(isPositiveEven(4));
 console.log(isPositiveEven(5));
 console.log(isPositiveEven(-2));
 console.log(promptGreaterFive());
+var array = [3,4,5,6];
+console.log(lengthArray(array));
