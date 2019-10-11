@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <style>
+        body {
+            background-repeat: repeat;
+            background-size: 240px 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lives x 3</h1>
+    <audio id="extra">
+        <source src="audio/1up.wav">
+    </audio>
+    <script src="js/jquery-2.2.4.js"></script>
+    <script>
+        "use strict";
+        var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        var currentCode = [];
+        var audio = $("#extra")[0];
+        $(document).keydown(function(event){
+            console.log(event.which);
+        });
+        $(document).keydown(function(event){
+            const press = Date.now();
+            currentCode.push(event.which);
+            console.log(currentCode);
+            if (comparing(currentCode)){
+                alert("You have added 30 lives!");
+                $('body').css('background-image', 'url(img/1up.png)');
+                audio.play();
+                $('h1').text("Lives x 30");
+            }
+            else {
+                for (var i = 0; i < currentCode.length; i++) {
+                    if (currentCode[i] !== konamiCode[i]){
+                        currentCode = [];
+                    }
+                }
+            }
+        });
+
+        function comparing(current){
+            if (current.length !== konamiCode.length){
+                return false;
+            }
+            for (var i = 0; i < konamiCode.length; i++) {
+                if (current[i] !== konamiCode[i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
