@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery FAQ</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>10 Questions about National Parks</h1>
+    <dl>
+        <dt class="question1">1: How many National Parks are there?</dt>
+        <dd class="invisible">In the National Park System, there are 407 sites covering more than 84 million acres of land.</dd>
+
+        <dt class="question2">2: How many people have visited National Parks?</dt>
+        <dd class="invisible">In 2014, more than 290 million people visited the National Parks.</dd>
+
+        <dt class="question3">3. Which is the nation's deepest cave?</dt>
+        <dd class="invisible">The nation’s deepest cave is 1,593 ft deep in New Mexico at Carlsbad Caverns National Park.</dd>
+
+        <dt class="question4">4. Which is the first National Park?</dt>
+        <dd class="invisible">Originally established by Congress as Hot Springs Reservation in 1832 and later becoming a national park in 1921, Hot Springs National Park represents the oldest protected area in the National Park System.</dd>
+
+        <dt class="question5">5. What kind of parks are there?</dt>
+        <dd class="invisible">In the National Park System there are: 124 historical parks or sites, 78 national monuments, 59 national parks, 25 battlefields or military parks, 18 preserves, 18 recreational areas, 10 seashores, 4 parkways, 4 lakeshores and 2 reserves.</dd>
+
+        <dt class="question6">6. What kind of species are in the parks?</dt>
+        <dd class="invisible">Yosemite National Park supports more than 400 species of vertebrates including fish, amphibians, reptiles, birds, and mammals.</dd>
+
+        <dt class="question7">7. Are there any active volcanoes?</dt>
+        <dd class="invisible">There is 1 active volcano, thousands of petrified trees, and almost 300 waterfalls in Yellowstone National Park.</dd>
+
+        <dt class="question8">8. What's a historic event that happened in these parks?</dt>
+        <dd class="invisible">Seneca Falls National Park in New York is the location of the First Women’s Right Conventions, where expanding rights of women were discussed in the mid-19th century.</dd>
+
+        <dt class="question9">9. What are the largest living things in there?</dt>
+        <dd class="invisible">The largest living things in the world are in National Parks: Sequoia trees and Alaskan brown bears (the world’s largest living carnivores).</dd>
+
+        <dt class="question10">10. How many historic and prehistoric structures are there?</dt>
+        <dd class="invisible">There are 27,000 historic and prehistoric structures preserved within the National Parks System.</dd>
+    </dl>
+    <a href="#" id="toggle-facts">Toggle Facts</a>
+
+    <script>
+        $('#toggle-facts').click(function(event){
+            event.preventDefault();
+            $('dd').toggleClass('invisible');
+        });
+
+        $('.question1').click(function(){
+            $('.question1').toggleClass('highlight');
+        });
+
+        $('.question2').click(function(){
+            $('.question2').toggleClass('highlight');
+        });
+
+        $('.question3').click(function(){
+            $('.question3').toggleClass('highlight');
+        });
+
+        $('.question4').click(function(){
+            $('.question4').toggleClass('highlight');
+        });
+
+        $('.question5').click(function(){
+            $('.question5').toggleClass('highlight');
+        });
+
+        $('.question6').click(function(){
+            $('.question6').toggleClass('highlight');
+        });
+
+        $('.question7').click(function(){
+            $('.question7').toggleClass('highlight');
+        });
+
+        $('.question8').click(function(){
+            $('.question8').toggleClass('highlight');
+        });
+
+        $('.question9').click(function(){
+            $('.question9').toggleClass('highlight');
+        });
+
+        $('.question10').click(function(){
+            $('.question10').toggleClass('highlight');
+        });
+
+    </script>
+</body>
+</html>
