@@ -113,7 +113,7 @@ for (var j = 0; j < shapes.length; j++){
 // TODO TOGETHER: Alert "that's my favorite shape!" when your favorite shape is iterated over in the loop.
 for (var k = 0; k < shapes.length; k++){
     if (shapes[k] === 'square'){
-        alert("that's my favorite shape!");
+        alert(shapes[k] + "!!!!! that's my favorite shape!");
     }
 }
 // TODO: What happens if we change var i = 1? or var i = 2;
@@ -123,9 +123,6 @@ for (var k = 0; k < shapes.length; k++){
 // TODO: Using a for loop, iterate through the instructors array and console.log each instructor
 for (var l = 0; l < instructors.length; l++){
     console.log(instructors[l]);
-    if (instructors[l] === 'david'){
-        alert("hey, I know david");
-    }
 }
 // TODO: Using a for loop, iterate through the daysOfTheWeek array and console.log each day of the week
 for (var m = 0; m < daysOfTheWeek.length; m++){
@@ -136,7 +133,15 @@ for (var n = 0; n < favoriteFoods.length; n++){
     console.log(favoriteFoods[n]);
 }
 // TODO: Refactoring the instructor loop, alert "hey, I know <INSTRUCTOR NAME HERE>" if you have had class with that instructor. If you have not had class with that instructor, alert "I haven't had class with <INSTRUCTOR NAME HERE> yet!"
-
+for (var p = 0; p < instructors.length; p++){
+    console.log(instructors[p]);
+    if (instructors[p] === 'vivian' || instructors[p] === 'david' || instructors[p] === 'sophie' || instructors[p] === 'trant'){
+        alert("hey, I know " + instructors[p]);
+    }
+    else {
+        alert("I dunno who that is");
+    }
+}
 
 
 /* ***************************************************************
