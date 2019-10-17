@@ -74,6 +74,11 @@ function quotient(num1, num2){
     return false;
 }
 
+// function to return true if input is string and 8 characters
+function stringEight(input){
+    return typeof input == 'string' && input.length === 8;
+}
+
 alert(helloStranger(stranger));
 stranger = prompt("Please input string");
 alert(helloStranger(stranger));
