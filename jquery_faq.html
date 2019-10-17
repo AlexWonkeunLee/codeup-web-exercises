@@ -7,6 +7,11 @@
         .invisible {
             visibility: hidden;
         }
+
+        .four{
+            display: none;
+        }
+
         .highlight {
             background-color: yellow;
         }
@@ -29,6 +34,10 @@
             justify-content: space-between;
         }
 
+        #popup{
+            display: none;
+        }
+
         img {
             width: 100%;
             height: 100%;
@@ -37,6 +46,8 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="newsletter"><h1>Would you like to sign up for our newsletter?</h1><span id="newsletter">X</span></div>
+    <h2 id="popup">HEY BRO, WANNA REGISTER TO THIS SITE?!?!?!?!?!?!?!?!?!?!?!?!? ONLY NEED YOUR SOCIAL SECURITY NUMBER</h2>
     <h1>10 Questions about National Parks</h1>
     <dl>
         <dt class="question1">1: How many National Parks are there?</dt>
@@ -70,23 +81,22 @@
         <dd class="invisible">There are 27,000 historic and prehistoric structures preserved within the National Parks System.</dd>
     </dl>
     <a href="#" id="toggle-facts">Toggle Facts</a>
-
-    <ul class="first">
-        <h3>Yellowstone National Park</h3>
+    <h3>Yellowstone National Park</h3>
+    <ul class="four first">
         <li>This is the world's first national park</li>
         <li>Established on March 1, 1872</li>
         <li>Larger than Rhode Island and Delaware combined</li>
         <li>There's an active volcano</li>
     </ul>
-    <ul class="second">
-        <h3>Zion National Park</h3>
+    <h3>Zion National Park</h3>
+    <ul class="four second">
         <li>Used to be a National Monument</li>
         <li>Zion Canyon has a depth of 800 meters</li>
         <li>Has one of the largest freestanding arches in the world</li>
         <li>One of the most dangerous parks to traverse</li>
     </ul>
-    <ul class="third">
-        <h3>Yosemite National Park</h3>
+    <h3>Yosemite National Park</h3>
+    <ul class="four third">
         <li>The nation's third national park</li>
         <li>Has one of the tallest waterfalls in the world</li>
         <li>Only national park to host winter Olympics</li>
@@ -159,15 +169,13 @@
 
         $('h3').each(function(){
             $(this).click(function(){
-                $(this).next().css('font-weight', 'bold');
-                $(this).next().next().css('font-weight', 'bold');
-                $(this).next().next().next().css('font-weight', 'bold');
-                $(this).next().next().next().next().css('font-weight', 'bold');
+                $(this).next().slideToggle(1000);
+                $(this).next().children().css('font-weight', 'bold');
             });
         });
 
         $('li').click(function(){
-            $(this).parent().children().next().first().css('color', 'blue');
+            $(this).parent().children().first().css('color', 'blue');
         });
 
         $('#left').click(function(){
@@ -204,6 +212,13 @@
             $('.dos').html(right);
         });
 
+        $('#newsletter').click(function(){
+            $('.newsletter').hide();
+        });
+
+        setTimeout(function(){
+            $('#popup').slideToggle(1000);
+        }, 8000);
     </script>
 
 
