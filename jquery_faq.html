@@ -10,6 +10,29 @@
         .highlight {
             background-color: yellow;
         }
+        .picture {
+            border: 4px solid saddlebrown;
+            width: 15vw;
+            height: 20vh;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+        .switch {
+            clear: left;
+        }
+
+        .buttons{
+            width: 48%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
@@ -25,7 +48,7 @@
         <dt class="question3">3. Which is the nation's deepest cave?</dt>
         <dd class="invisible">The nation’s deepest cave is 1,593 ft deep in New Mexico at Carlsbad Caverns National Park.</dd>
 
-        <dt class="question4">4. Which is the first National Park?</dt>
+        <dt class="question4">4. What is the oldest protected area?</dt>
         <dd class="invisible">Originally established by Congress as Hot Springs Reservation in 1832 and later becoming a national park in 1921, Hot Springs National Park represents the oldest protected area in the National Park System.</dd>
 
         <dt class="question5">5. What kind of parks are there?</dt>
@@ -48,6 +71,40 @@
     </dl>
     <a href="#" id="toggle-facts">Toggle Facts</a>
 
+    <ul class="first">
+        <h3>Yellowstone National Park</h3>
+        <li>This is the world's first national park</li>
+        <li>Established on March 1, 1872</li>
+        <li>Larger than Rhode Island and Delaware combined</li>
+        <li>There's an active volcano</li>
+    </ul>
+    <ul class="second">
+        <h3>Zion National Park</h3>
+        <li>Used to be a National Monument</li>
+        <li>Zion Canyon has a depth of 800 meters</li>
+        <li>Has one of the largest freestanding arches in the world</li>
+        <li>One of the most dangerous parks to traverse</li>
+    </ul>
+    <ul class="third">
+        <h3>Yosemite National Park</h3>
+        <li>The nation's third national park</li>
+        <li>Has one of the tallest waterfalls in the world</li>
+        <li>Only national park to host winter Olympics</li>
+        <li>You can see a rainbow at night</li>
+    </ul>
+
+    <button id="last-list">Last</button>
+    <br><br>
+<div class="frames">
+    <div class="picture uno"><img src="img/birds.jpeg"></div>
+    <div class="picture dos"><img src="img/dog.jpeg"></div>
+    <div class="picture tres"><img src="img/mountain.jpeg"></div>
+</div>
+    <div class="buttons">
+    <button id="left" class="switch">LEFT</button>
+    <button id="center" class="switch">CENTER</button>
+    <button id="right" class="switch">RIGHT</button>
+    </div>
     <script>
         $('#toggle-facts').click(function(event){
             event.preventDefault();
@@ -94,6 +151,62 @@
             $('.question10').toggleClass('highlight');
         });
 
+        $('#last-list').click(function(){
+            $('ul').each(function(){
+                $(this).children().last().css('background-color', 'yellow');
+            });
+        });
+
+        $('h3').each(function(){
+            $(this).click(function(){
+                $(this).next().css('font-weight', 'bold');
+                $(this).next().next().css('font-weight', 'bold');
+                $(this).next().next().next().css('font-weight', 'bold');
+                $(this).next().next().next().next().css('font-weight', 'bold');
+            });
+        });
+
+        $('li').click(function(){
+            $(this).parent().children().next().first().css('color', 'blue');
+        });
+
+        $('#left').click(function(){
+            var left = $('.uno').html();
+            var right = $('.dos').html();
+
+            $('.dos').html(left);
+            $('.uno').html(right);
+        });
+
+        $('#center').click(function(){
+            var random = Math.floor(Math.random() * 2);
+            if (random === 0){
+                var left = $('.uno').html();
+                var right = $('.dos').html();
+
+                $('.dos').html(left);
+                $('.uno').html(right);
+            }
+            else {
+                var left = $('.dos').html();
+                var right = $('.tres').html();
+
+                $('.tres').html(left);
+                $('.dos').html(right);
+            }
+        });
+
+        $('#right').click(function(){
+            var left = $('.dos').html();
+            var right = $('.tres').html();
+
+            $('.tres').html(left);
+            $('.dos').html(right);
+        });
+
     </script>
+
+
+
 </body>
 </html>
