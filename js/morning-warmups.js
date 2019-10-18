@@ -66,6 +66,14 @@ function lengthArray(array){
     return array.length;
 }
 
+// function that takes float number and returns rounded down
+function roundDown(num){
+    if (isNaN(parseFloat(num))){
+        return false
+    }
+    return Math.floor(num);
+}
+
 alert(helloStranger(stranger));
 stranger = prompt("Please input string");
 alert(helloStranger(stranger));
@@ -85,3 +93,4 @@ console.log(isPositiveEven(-2));
 console.log(promptGreaterFive());
 var array = [3,4,5,6,7];
 console.log(lengthArray(array));
+console.log(roundDown(23.4));
