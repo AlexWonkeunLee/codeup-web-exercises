@@ -66,6 +66,12 @@ function lengthArray(array){
     return array.length;
 }
 
+// function that takes float number and returns rounded down
+function roundDown(num){
+    if (isNaN(parseFloat(num))){
+        return false
+    }
+    return Math.floor(num);
 // function to return quotient of two numbers, return false if not two numbers
 function quotient(num1, num2){
     if(typeof num1 == "number" && typeof num2 == "number"){
@@ -98,6 +104,7 @@ console.log(isPositiveEven(-2));
 console.log(promptGreaterFive());
 var array = [3,4,5,6,7];
 console.log(lengthArray(array));
+console.log(roundDown(23.3));
 console.log(quotient(4,2));
 console.log(quotient(6, true));
 console.log(quotient(5));
