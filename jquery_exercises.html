@@ -16,12 +16,17 @@
     <div class="codeup">BLARGH BLARGH BLARGH BLARGH</div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script>
-        window.onload = function() {
-            alert('The page has finished loading!');
-        }
-        $('li, h1, p').css({'font-size': '40px', 'color': 'green'});
-        var header = $('h1').css('background-color', 'blue').html();
-        alert(header);
+        $('h1').click(function(){
+            $(this).css('background-color', 'yellow');
+        });
+        $('p').dblclick(function(){
+            $(this).css('font-size', '18px');
+        });
+        $('li').hover(function(){
+            $(this).css('color', 'red')} ,
+            function(){
+            $(this).css('color', 'black');}
+        );
     </script>
 </body>
 </html>
