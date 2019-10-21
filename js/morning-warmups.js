@@ -87,6 +87,13 @@ function stringEight(input){
     return typeof input == 'string' && input.length === 8;
 }
 
+// function to count from 1 up to number user passes in
+function countUp(num){
+    for(var i = 1; i <= num; i++){
+        console.log(i);
+    }
+}
+
 alert(helloStranger(stranger));
 stranger = prompt("Please input string");
 alert(helloStranger(stranger));
@@ -110,3 +117,4 @@ console.log(roundDown(23.3));
 console.log(quotient(4,2));
 console.log(quotient(6, true));
 console.log(quotient(5));
+countUp(20);
