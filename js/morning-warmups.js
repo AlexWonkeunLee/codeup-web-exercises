@@ -94,6 +94,14 @@ function countUp(num){
     }
 }
 
+//function that takes in name and age and returns object of name and age
+function createPersonObject(name, age){
+    return {
+        name: name,
+        age: age
+    };
+}
+
 alert(helloStranger(stranger));
 stranger = prompt("Please input string");
 alert(helloStranger(stranger));
