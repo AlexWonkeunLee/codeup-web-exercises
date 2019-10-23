@@ -7,6 +7,7 @@
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
     <script src="js/mapbox-geocoder-utils.js"></script>
+    <script src="js/keys.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         #map {
@@ -33,7 +34,6 @@
     <div id='map'></div>
     <script>
         markers = [];
-        accessToken = 'pk.eyJ1IjoiYWxleHdvbmtldW5sZWUiLCJhIjoiY2sxZ3N6eHpyMTQyejNtcDc4bjZkd2gxdiJ9.k9S0CzN8yzmYO4mRYUhLcA';
         mapboxgl.accessToken = accessToken;
         var map = new mapboxgl.Map({
             container: 'map',
