@@ -102,6 +102,12 @@ function createPersonObject(name, age){
     };
 }
 
+function return5FromFive(string){
+    if(string === "five"){
+        return 5;
+    }
+}
+
 alert(helloStranger(stranger));
 stranger = prompt("Please input string");
 alert(helloStranger(stranger));
