@@ -108,27 +108,57 @@ function return5FromFive(string){
     }
 }
 
-alert(helloStranger(stranger));
-stranger = prompt("Please input string");
-alert(helloStranger(stranger));
+function shoppingOranges(obj){
+    var highest;
+    var oranges = 0;
+    for (var i = 1; i < obj.length; i++){
+        if (obj[i].oranges > oranges){
+            highest = obj[i];
+        }
+    }
+    return highest;
+}
 
-console.log(areaTriangle(5, 6, 7));
-var theArray = [4,2,3];
-console.log(returnFirst(theArray));
-console.log(areaTriangle(20, 20, 20));
-console.log(equilateralArea(20));
-console.log(conStrings("ab", "cd", "ef"));
-console.log(areaCircle(4));
-var thing = true;
-console.log(returnType(thing));
-console.log(isPositiveEven(4));
-console.log(isPositiveEven(5));
-console.log(isPositiveEven(-2));
-console.log(promptGreaterFive());
-var array = [3,4,5,6,7];
-console.log(lengthArray(array));
-console.log(roundDown(23.3));
-console.log(quotient(4,2));
-console.log(quotient(6, true));
-console.log(quotient(5));
-countUp(20);
+var shopping = [
+    {
+        apples: 3,
+        oranges: 1
+    }
+    ,
+    {
+        apples: 3,
+        oranges: 7
+    },
+    {
+        apples: 3,
+        oranges: 5
+    }
+];
+
+console.log(shoppingOranges(shopping));
+
+
+// alert(helloStranger(stranger));
+// stranger = prompt("Please input string");
+// alert(helloStranger(stranger));
+//
+// console.log(areaTriangle(5, 6, 7));
+// var theArray = [4,2,3];
+// console.log(returnFirst(theArray));
+// console.log(areaTriangle(20, 20, 20));
+// console.log(equilateralArea(20));
+// console.log(conStrings("ab", "cd", "ef"));
+// console.log(areaCircle(4));
+// var thing = true;
+// console.log(returnType(thing));
+// console.log(isPositiveEven(4));
+// console.log(isPositiveEven(5));
+// console.log(isPositiveEven(-2));
+// console.log(promptGreaterFive());
+// var array = [3,4,5,6,7];
+// console.log(lengthArray(array));
+// console.log(roundDown(23.3));
+// console.log(quotient(4,2));
+// console.log(quotient(6, true));
+// console.log(quotient(5));
+// countUp(20);
