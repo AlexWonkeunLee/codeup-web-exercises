@@ -102,46 +102,28 @@ function createPersonObject(name, age){
     };
 }
 
-function return5FromFive(string){
-    if(string === "five"){
-        return 5;
-    }
-}
-
-function shoppingOranges(obj){
-    var highest;
-    var oranges = 0;
-    for (var i = 1; i < obj.length; i++){
-        if (obj[i].oranges > oranges){
-            highest = obj[i];
+//function that writes FizzBuzz
+function fizzBuzz(){
+    for(var i = 1; i < 101; i++){
+        if (i % 3 === 0 && i % 5 !== 0){
+            console.log("Fizz");
+        }
+        else if(i % 5 === 0 && i % 3 !== 0){
+            console.log("Buzz");
+        }
+        else if (i % 3 === 0 && i % 5 === 0){
+            console.log("FizzBuzz");
+        }
+        else {
+            console.log(i);
         }
     }
-    return highest;
 }
 
-var shopping = [
-    {
-        apples: 3,
-        oranges: 1
-    }
-    ,
-    {
-        apples: 3,
-        oranges: 7
-    },
-    {
-        apples: 3,
-        oranges: 5
-    }
-];
+alert(helloStranger(stranger));
+stranger = prompt("Please input string");
+alert(helloStranger(stranger));
 
-console.log(shoppingOranges(shopping));
-
-
-// alert(helloStranger(stranger));
-// stranger = prompt("Please input string");
-// alert(helloStranger(stranger));
-//
 // console.log(areaTriangle(5, 6, 7));
 // var theArray = [4,2,3];
 // console.log(returnFirst(theArray));
@@ -162,3 +144,4 @@ console.log(shoppingOranges(shopping));
 // console.log(quotient(6, true));
 // console.log(quotient(5));
 // countUp(20);
+fizzBuzz();
