@@ -120,9 +120,38 @@ function fizzBuzz(){
     }
 }
 
-alert(helloStranger(stranger));
-stranger = prompt("Please input string");
-alert(helloStranger(stranger));
+function shoppingOranges(obj){
+    var highest;
+    var oranges = 0;
+    for (var i = 1; i < obj.length; i++){
+        if (obj[i].oranges > oranges){
+            highest = obj[i];
+        }
+    }
+    return highest;
+}
+
+var shopping = [
+    {
+        apples: 3,
+        oranges: 1
+    }
+    ,
+    {
+        apples: 3,
+        oranges: 7
+    },
+    {
+        apples: 3,
+        oranges: 5
+    }
+];
+
+console.log(shoppingOranges(shopping));
+
+// alert(helloStranger(stranger));
+// stranger = prompt("Please input string");
+// alert(helloStranger(stranger));
 
 // console.log(areaTriangle(5, 6, 7));
 // var theArray = [4,2,3];
@@ -144,4 +173,4 @@ alert(helloStranger(stranger));
 // console.log(quotient(6, true));
 // console.log(quotient(5));
 // countUp(20);
-fizzBuzz();
+// fizzBuzz();
