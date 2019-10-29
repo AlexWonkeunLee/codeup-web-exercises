@@ -120,34 +120,75 @@ function fizzBuzz(){
     }
 }
 
-function shoppingOranges(obj){
-    var highest;
-    var oranges = 0;
-    for (var i = 1; i < obj.length; i++){
-        if (obj[i].oranges > oranges){
-            highest = obj[i];
+// function shoppingOranges(obj){
+//     var highest;
+//     var oranges = 0;
+//     for (var i = 1; i < obj.length; i++){
+//         if (obj[i].oranges > oranges){
+//             highest = obj[i];
+//         }
+//     }
+//     return highest;
+// }
+
+// var shopping = [
+//     {
+//         apples: 3,
+//         oranges: 1
+//     }
+//     ,
+//     {
+//         apples: 3,
+//         oranges: 7
+//     },
+//     {
+//         apples: 3,
+//         oranges: 5
+//     }
+// ];
+//
+// console.log(shoppingOranges(shopping));
+
+// function that accepts array of student objects and returns array of student that are not registered
+function notRegistered(array){
+    var unregistered = [];
+    for(var i = 0; i < array.length; i++){
+        if (array[i].register === false){
+            unregistered.push(array[i]);
         }
     }
-    return highest;
+    return unregistered;
 }
 
-var shopping = [
+var students = [
     {
-        apples: 3,
-        oranges: 1
-    }
-    ,
-    {
-        apples: 3,
-        oranges: 7
+        name: "bob",
+        age: 20,
+        register: true
     },
     {
-        apples: 3,
-        oranges: 5
+        name: "frank",
+        age: 34,
+        register: false
+    },
+    {
+        name: "sarah",
+        age: 27,
+        register: true
+    },
+    {
+        name: "alex",
+        age: 90,
+        register: false
+    },
+    {
+        name: "bro",
+        age: 5,
+        register: true
     }
 ];
 
-console.log(shoppingOranges(shopping));
+console.log(notRegistered(students));
 
 // alert(helloStranger(stranger));
 // stranger = prompt("Please input string");
