@@ -24,7 +24,6 @@
             console.log(event.which);
         });
         $(document).keydown(function(event){
-            const press = Date.now();
             currentCode.push(event.which);
             console.log(currentCode);
             if (comparing(currentCode)){

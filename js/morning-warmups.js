@@ -120,16 +120,16 @@ function fizzBuzz(){
     }
 }
 
-// function shoppingOranges(obj){
-//     var highest;
-//     var oranges = 0;
-//     for (var i = 1; i < obj.length; i++){
-//         if (obj[i].oranges > oranges){
-//             highest = obj[i];
-//         }
-//     }
-//     return highest;
-// }
+function shoppingOranges(obj){
+    var highest;
+    var oranges = 0;
+    for (var i = 1; i < obj.length; i++){
+        if (obj[i].oranges > oranges){
+            highest = obj[i];
+        }
+    }
+    return highest;
+}
 
 // var shopping = [
 //     {
@@ -159,37 +159,80 @@ function notRegistered(array){
     }
     return unregistered;
 }
+//
+// var students = [
+//     {
+//         name: "bob",
+//         age: 20,
+//         register: true
+//     },
+//     {
+//         name: "frank",
+//         age: 34,
+//         register: false
+//     },
+//     {
+//         name: "sarah",
+//         age: 27,
+//         register: true
+//     },
+//     {
+//         name: "alex",
+//         age: 90,
+//         register: false
+//     },
+//     {
+//         name: "bro",
+//         age: 5,
+//         register: true
+//     }
+// ];
+//
+// console.log(notRegistered(students));
 
-var students = [
-    {
-        name: "bob",
-        age: 20,
-        register: true
-    },
-    {
-        name: "frank",
-        age: 34,
-        register: false
-    },
-    {
-        name: "sarah",
-        age: 27,
-        register: true
-    },
-    {
-        name: "alex",
-        age: 90,
-        register: false
-    },
-    {
-        name: "bro",
-        age: 5,
-        register: true
+// function that will return an array of hamster objects sorted by height
+function hamsterSort(hamsters){
+    function sortNumber(a, b) {
+        return a.heightInMM - b.heightInMM;
     }
-];
+    hamsters.sort(sortNumber);
+    return hamsters;
 
-console.log(notRegistered(students));
+}
 
+// var hamsters = [
+//     {
+//         name: "Hamtaro",
+//         heightInMM: 86,
+//         fur: ['orange', 'white'],
+//         gender: "male",
+//         dateOfBirth: "August 6"
+//     } , {
+//         name: "Bijou",
+//         heightInMM: 75,
+//         fur: ['white'],
+//         gender: "female",
+//         dateOfBirth: "July 10"
+//     } , {
+//         name: "Oxnard",
+//         heightInMM: 100,
+//         fur: ['grey', 'white'],
+//         gender: "male",
+//         dateOfBirth: "May 3"
+//     } , {
+//         name: "Boss",
+//         heightInMM: 120,
+//         fur: ['brown', 'white'],
+//         gender: "male",
+//         dateOfBirth: "Spetember 21"
+//     } , {
+//         name: "Snoozer",
+//         heightInMM: 85,
+//         fur: ['brown', 'white', "pink"],
+//         gender: "male",
+//         dateOfBirth: "January 14"
+//     }
+// ];
 // alert(helloStranger(stranger));
 // stranger = prompt("Please input string");
 // alert(helloStranger(stranger));
