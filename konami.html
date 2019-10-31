@@ -7,56 +7,2301 @@
             background-repeat: repeat;
             background-size: 240px 150px;
         }
-    </style>
-</head>
-<body>
-    <h1>Lives x 3</h1>
-    <audio id="extra">
-        <source src="audio/1up.wav">
-    </audio>
-    <script src="js/jquery-2.2.4.js"></script>
-    <script>
-        "use strict";
-        var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
-        var currentCode = [];
-        var audio = $("#extra")[0];
-        $(document).keydown(function(event){
-            console.log(event.which);
-        });
-        $(document).keydown(function(event){
-            currentCode.push(event.which);
-            console.log(currentCode);
-            if (comparing(currentCode)){
-                alert("You have added 30 lives!");
-                $('body').css('background-image', 'url(img/1up.png)');
-                audio.play();
-                $('h1').text("Lives x 30");
-            }
-            else {
-                for (var i = 0; i < currentCode.length; i++) {
-                    if (currentCode[i] !== konamiCode[i]){
-                        currentCode = [];
-                    }
-                }
-            }
-        });
 
-        function comparing(current){
-            if (current.length !== konamiCode.length){
-                return false;
-            }
-            for (var i = 0; i < konamiCode.length; i++) {
-                if (current[i] !== konamiCode[i]){
-                    return false;
-                }
-            }
-            return true;
+        .container {
+            display: grid;
+            grid-template-columns: repeat(7, 68px);
+            grid-template-rows: repeat(7, 68px);
+            border: solid black 3px;
+            height: 500px;
+            width: 500px;
+            background: black;
+            grid-gap: 3px;
+        }
+
+        .gridSpot1 {
+            background: white;
+            grid-row: 1/2;
+            grid-column: 1/2;
+        }
+
+        .gridSpot2 {
+            background: white;
+            grid-row: 1/2;
+            grid-column: 2/3;
+        }
+
+        .gridSpot3 {
+            background: white;
+            grid-row: 1/2;
+            grid-column: 3/4;
+        }
+
+        .gridSpot4 {
+            background: white;
+            grid-row: 1/2;
+            grid-column: 4/5;
+        }
+
+        .gridSpot5 {
+            background: white;
+            grid-row: 1/2;
+            grid-column: 5/6;
+        }
+
+        .gridSpot6 {
+            background: white;
+            grid-row: 1/2;
+            grid-column: 6/7;
+        }
+
+        .gridSpot7 {
+            background: white;
+            grid-row: 1/2;
+            grid-column: 7/8;
+        }
+
+        .gridSpot8 {
+            background: white;
+            grid-row: 2/3;
+            grid-column: 1/2;
+        }
+
+        .gridSpot9 {
+            background: white;
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+
+        .gridSpot10 {
+            background: white;
+            grid-row: 2/3;
+            grid-column: 3/4;
+        }
+
+        .gridSpot11 {
+            background: white;
+            grid-row: 2/3;
+            grid-column: 4/5;
+        }
+
+        .gridSpot12 {
+            background: white;
+            grid-row: 2/3;
+            grid-column: 5/6;
+        }
+
+        .gridSpot13 {
+            background: white;
+            grid-row: 2/3;
+            grid-column: 6/7;
+        }
+
+        .gridSpot14 {
+            background: white;
+            grid-row: 2/3;
+            grid-column: 7/8;
+        }
+
+        .gridSpot15 {
+            background: white;
+            grid-row: 3/4;
+            grid-column: 1/2;
+        }
+
+        .gridSpot16 {
+            background: white;
+            grid-row: 3/4;
+            grid-column: 2/3;
+        }
+
+        .gridSpot17 {
+            background: white;
+            grid-row: 3/4;
+            grid-column: 3/4;
+        }
+
+        .gridSpot18 {
+            background: white;
+            grid-row: 3/4;
+            grid-column: 4/5;
+        }
+
+        .gridSpot19 {
+            background: white;
+            grid-row: 3/4;
+            grid-column: 5/6;
+        }
+
+        .gridSpot20 {
+            background: white;
+            grid-row: 3/4;
+            grid-column: 6/7;
+        }
+
+        .gridSpot21 {
+            background: white;
+            grid-row: 3/4;
+            grid-column: 7/8;
+        }
+
+        .gridSpot22 {
+            background: white;
+            grid-row: 4/5;
+            grid-column: 1/2;
+        }
+
+        .gridSpot23 {
+            background: white;
+            grid-row: 4/5;
+            grid-column: 2/3;
+        }
+
+        .gridSpot24 {
+            background: white;
+            grid-row: 4/5;
+            grid-column: 3/4;
+        }
+
+        .gridSpot25 {
+            background: white;
+            grid-row: 4/5;
+            grid-column: 4/5;
+        }
+
+        .gridSpot26 {
+            background: white;
+            grid-row: 4/5;
+            grid-column: 5/6;
+        }
+
+        .gridSpot27 {
+            background: white;
+            grid-row: 4/5;
+            grid-column: 6/7;
+        }
+
+        .gridSpot28 {
+            background: white;
+            grid-row: 4/5;
+            grid-column: 7/8;
+        }
+
+        .gridSpot29 {
+            background: white;
+            grid-row: 5/6;
+            grid-column: 1/2;
+        }
+
+        .gridSpot30 {
+            background: white;
+            grid-row: 5/6;
+            grid-column: 2/3;
+        }
+
+        .gridSpot31 {
+            background: white;
+            grid-row: 5/6;
+            grid-column: 3/4;
+        }
+
+        .gridSpot32 {
+            background: white;
+            grid-row: 5/6;
+            grid-column: 4/5;
+        }
+
+        .gridSpot33 {
+            background: white;
+            grid-row: 5/6;
+            grid-column: 5/6;
+        }
+
+        .gridSpot34 {
+            background: white;
+            grid-row: 5/6;
+            grid-column: 6/7;
+        }
+
+        .gridSpot35 {
+            background: white;
+            grid-row: 5/6;
+            grid-column: 7/8;
+        }
+
+        .gridSpot36 {
+            background: white;
+            grid-row: 6/7;
+            grid-column: 1/2;
+        }
+
+        .gridSpot37 {
+            background: white;
+            grid-row: 6/7;
+            grid-column: 2/3;
+        }
+
+        .gridSpot38 {
+            background: white;
+            grid-row: 6/7;
+            grid-column: 3/4;
+        }
+
+        .gridSpot39 {
+            background: white;
+            grid-row: 6/7;
+            grid-column: 4/5;
+        }
+
+        .gridSpot40 {
+            background: white;
+            grid-row: 6/7;
+            grid-column: 5/6;
+        }
+
+        .gridSpot41 {
+            background: white;
+            grid-row: 6/7;
+            grid-column: 6/7;
+        }
+
+        .gridSpot42 {
+            background: white;
+            grid-row: 6/7;
+            grid-column: 7/8;
+        }
+
+        .gridSpot43 {
+            background: white;
+            grid-row: 7/8;
+            grid-column: 1/2;
+        }
+
+        .gridSpot44 {
+            background: white;
+            grid-row: 7/8;
+            grid-column: 2/3;
+        }
+
+        .gridSpot45 {
+            background: white;
+            grid-row: 7/8;
+            grid-column: 3/4;
+        }
+
+        .gridSpot46 {
+            background: white;
+            grid-row: 7/8;
+            grid-column: 4/5;
+        }
+
+        .gridSpot47 {
+            background: white;
+            grid-row: 7/8;
+            grid-column: 5/6;
+        }
+
+        .gridSpot48 {
+            background: white;
+            grid-row: 7/8;
+            grid-column: 6/7;
+        }
+
+        .gridSpot49 {
+            background: white;
+            grid-row: 7/8;
+            grid-column: 7/8;
         }
 
 
+    </style>
+</head>
+<body>
+<h1></h1>
+<div class="container">
+    <div class="gridSpot1"></div>
+    <div class="gridSpot2"></div>
+    <div class="gridSpot3"></div>
+    <div class="gridSpot4"></div>
+    <div class="gridSpot5"></div>
+    <div class="gridSpot6"></div>
+    <div class="gridSpot7"></div>
+    <div class="gridSpot8"></div>
+    <div class="gridSpot9"></div>
+    <div class="gridSpot10"></div>
+    <div class="gridSpot11"></div>
+    <div class="gridSpot12"></div>
+    <div class="gridSpot13"></div>
+    <div class="gridSpot14"></div>
+    <div class="gridSpot15"></div>
+    <div class="gridSpot16"></div>
+    <div class="gridSpot17"></div>
+    <div class="gridSpot18"></div>
+    <div class="gridSpot19"></div>
+    <div class="gridSpot20"></div>
+    <div class="gridSpot21"></div>
+    <div class="gridSpot22"></div>
+    <div class="gridSpot23"></div>
+    <div class="gridSpot24"></div>
+    <div class="gridSpot25"></div>
+    <div class="gridSpot26"></div>
+    <div class="gridSpot27"></div>
+    <div class="gridSpot28"></div>
+    <div class="gridSpot29"></div>
+    <div class="gridSpot30"></div>
+    <div class="gridSpot31"></div>
+    <div class="gridSpot32"></div>
+    <div class="gridSpot33"></div>
+    <div class="gridSpot34"></div>
+    <div class="gridSpot35"></div>
+    <div class="gridSpot36"></div>
+    <div class="gridSpot37"></div>
+    <div class="gridSpot38"></div>
+    <div class="gridSpot39"></div>
+    <div class="gridSpot40"></div>
+    <div class="gridSpot41"></div>
+    <div class="gridSpot42"></div>
+    <div class="gridSpot43"></div>
+    <div class="gridSpot44"></div>
+    <div class="gridSpot45"></div>
+    <div class="gridSpot46"><img src="img/smiley.jpg" height="68px" width="68px"></div>
+    <div class="gridSpot47"></div>
+    <div class="gridSpot48"></div>
+    <div class="gridSpot49"></div>
+
+    <h2></h2>
+
+</div>
+<audio id="code">
+    <source src="audio/1up.wav">
+</audio>
+<audio id="wall">
+    <source src="audio/dink.wav">
+</audio>
+<audio id="move">
+    <source src="audio/move.wav">
+</audio>
+<audio id="hit">
+    <source src="audio/ouch.wav">
+</audio>
+<audio id="over">
+    <source src="audio/over.wav">
+</audio>
+<audio id="start">
+    <source src="audio/start.wav">
+</audio>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    var lives = 3;
+    var currentPosition = 46;
+    var points = 0;
+    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    var currentCode = [];
+    var codeAudio = $("#code")[0];
+    var wallAudio = $("#wall")[0];
+    var moveAudio = $('#move')[0];
+    var ouchAudio = $('#hit')[0];
+    var overAudio = $('#over')[0];
+    var startAudio = $('#start')[0];
+    $('h1').html("Lives x " + lives);
+    $('h2').html("Points: " + points);
+    $(document).ready(function(){
+        alert("Are you ready?");
+        startAudio.play();
+    });
+    $(document).keydown(function (event) {
+        var key = event.which;
+        currentCode.push(key);
+        console.log(currentCode);
+        if (comparing(currentCode)) {
+            alert("KONAMI CODE!!!");
+            lives += 30;
+            $('body').css('background-image', 'url(img/1up.png)');
+            codeAudio.play();
+            $('h1').html("Lives x " + lives);
+        } else {
+            for (var i = 0; i < currentCode.length; i++) {
+                if (currentCode[i] !== konamiCode[i]) {
+                    currentCode = [];
+                }
+            }
+        }
+        if (key === 38) {
+            if (atTop(currentPosition)) {
+                wallAudio.play();
+            } else {
+                $('.container').children().children().remove('img');
+                moveUp(currentPosition);
+                moveAudio.play();
+                currentPosition -= 7;
+            }
+        }
+        if (key === 37) {
+            if (atLeft(currentPosition)) {
+                wallAudio.play();
+            } else {
+                $('.container').children().children().remove('img');
+                moveLeft(currentPosition);
+                moveAudio.play();
+                currentPosition--;
+            }
+        }
+        if (key === 39) {
+            if (atRight(currentPosition)) {
+                wallAudio.play();
+            } else {
+                $('.container').children().children().remove('img');
+                moveRight(currentPosition);
+                moveAudio.play();
+                currentPosition++;
+            }
+        }
+        if (key === 40) {
+            if (atBottom(currentPosition)) {
+                wallAudio.play();
+            } else {
+                $('.container').children().children().remove('img');
+                moveDown(currentPosition);
+                moveAudio.play();
+                currentPosition += 7;
+            }
+        }
+
+    });
 
 
+    setInterval(function () {
+        if(currentPosition > 42 && currentPosition < 50){
+            points++;
+        }
+        else if(currentPosition > 35 && currentPosition < 43){
+            points += 2;
+        }
+        else if(currentPosition > 28 && currentPosition < 36){
+            points += 3;
+        }
+        else if(currentPosition > 21 && currentPosition < 29){
+            points += 5;
+        }
+        else if(currentPosition > 14 && currentPosition < 22){
+            points += 7;
+        }
+        else if(currentPosition > 7 && currentPosition < 15){
+            points += 10;
+        }
+        else if(currentPosition > 0 && currentPosition < 8){
+            points += 15;
+        }
+        $('h2').text("Points: " + points);
+    }, 100);
 
-    </script>
+    setInterval(function () {
+        var positionRed = Math.floor(Math.random() * 7) + 1;
+        if (positionRed === 1) {
+            $('.gridSpot1').css('background', 'red');
+        }
+        if (positionRed === 2) {
+            $('.gridSpot2').css('background', 'red');
+        }
+        if (positionRed === 3) {
+            $('.gridSpot3').css('background', 'red');
+        }
+        if (positionRed === 4) {
+            $('.gridSpot4').css('background', 'red');
+        }
+        if (positionRed === 5) {
+            $('.gridSpot5').css('background', 'red');
+        }
+        if (positionRed === 6) {
+            $('.gridSpot6').css('background', 'red');
+        }
+        if (positionRed === 7) {
+            $('.gridSpot7').css('background', 'red');
+        }
+
+        moveRed(positionRed);
+
+    }, 1000);
+
+
+    function comparing(current) {
+        if (current.length !== konamiCode.length) {
+            return false;
+        }
+        for (var i = 0; i < konamiCode.length; i++) {
+            if (current[i] !== konamiCode[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function atTop(position) {
+        return position <= 7;
+    }
+
+    function atLeft(position) {
+        return position === 1 || position === 8 || position === 15 || position === 22 || position === 29 || position === 36 || position === 43;
+    }
+
+    function atRight(position) {
+        return position === 7 || position === 14 || position === 21 || position === 28 || position === 35 || position === 42 || position === 49;
+    }
+
+    function atBottom(position) {
+        return position >= 43;
+    }
+
+    function moveUp(position) {
+
+        if (position === 8) {
+            $('.gridSpot1').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 9) {
+            $('.gridSpot2').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 10) {
+            $('.gridSpot3').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 11) {
+            $('.gridSpot4').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 12) {
+            $('.gridSpot5').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 13) {
+            $('.gridSpot6').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 14) {
+            $('.gridSpot7').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 15) {
+            $('.gridSpot8').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 16) {
+            $('.gridSpot9').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 17) {
+            $('.gridSpot10').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 18) {
+            $('.gridSpot11').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 19) {
+            $('.gridSpot12').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 20) {
+            $('.gridSpot13').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 21) {
+            $('.gridSpot14').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 22) {
+            $('.gridSpot15').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 23) {
+            $('.gridSpot16').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 24) {
+            $('.gridSpot17').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 25) {
+            $('.gridSpot18').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 26) {
+            $('.gridSpot19').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 27) {
+            $('.gridSpot20').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 28) {
+            $('.gridSpot21').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 29) {
+            $('.gridSpot22').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 30) {
+            $('.gridSpot23').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 31) {
+            $('.gridSpot24').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 32) {
+            $('.gridSpot25').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 33) {
+            $('.gridSpot26').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 34) {
+            $('.gridSpot27').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 35) {
+            $('.gridSpot28').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 36) {
+            $('.gridSpot29').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 37) {
+            $('.gridSpot30').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 38) {
+            $('.gridSpot31').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 39) {
+            $('.gridSpot32').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 40) {
+            $('.gridSpot33').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 41) {
+            $('.gridSpot34').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 42) {
+            $('.gridSpot35').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 43) {
+            $('.gridSpot36').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 44) {
+            $('.gridSpot37').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 45) {
+            $('.gridSpot38').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 46) {
+            $('.gridSpot39').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 47) {
+            $('.gridSpot40').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 48) {
+            $('.gridSpot41').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 49) {
+            $('.gridSpot42').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+    }
+
+    function moveLeft(position) {
+
+        if (position === 2) {
+            $('.gridSpot1').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 3) {
+            $('.gridSpot2').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 4) {
+            $('.gridSpot3').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 5) {
+            $('.gridSpot4').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 6) {
+            $('.gridSpot5').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 7) {
+            $('.gridSpot6').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 9) {
+            $('.gridSpot8').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 10) {
+            $('.gridSpot9').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 11) {
+            $('.gridSpot10').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 12) {
+            $('.gridSpot11').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 13) {
+            $('.gridSpot12').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 14) {
+            $('.gridSpot13').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 16) {
+            $('.gridSpot15').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 17) {
+            $('.gridSpot16').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 18) {
+            $('.gridSpot17').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 19) {
+            $('.gridSpot18').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 20) {
+            $('.gridSpot19').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 21) {
+            $('.gridSpot20').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 23) {
+            $('.gridSpot22').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 24) {
+            $('.gridSpot23').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 25) {
+            $('.gridSpot24').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 26) {
+            $('.gridSpot25').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 27) {
+            $('.gridSpot26').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 28) {
+            $('.gridSpot27').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 30) {
+            $('.gridSpot29').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 31) {
+            $('.gridSpot30').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 32) {
+            $('.gridSpot31').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 33) {
+            $('.gridSpot32').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 34) {
+            $('.gridSpot33').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 35) {
+            $('.gridSpot34').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 37) {
+            $('.gridSpot36').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 38) {
+            $('.gridSpot37').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 39) {
+            $('.gridSpot38').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 40) {
+            $('.gridSpot39').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 41) {
+            $('.gridSpot40').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 42) {
+            $('.gridSpot41').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 44) {
+            $('.gridSpot43').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 45) {
+            $('.gridSpot44').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 46) {
+            $('.gridSpot45').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 47) {
+            $('.gridSpot46').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 48) {
+            $('.gridSpot47').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 49) {
+            $('.gridSpot48').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+    }
+
+    function moveRight(position) {
+
+        if (position === 1) {
+            $('.gridSpot2').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 2) {
+            $('.gridSpot3').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 3) {
+            $('.gridSpot4').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 4) {
+            $('.gridSpot5').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 5) {
+            $('.gridSpot6').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 6) {
+            $('.gridSpot7').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 8) {
+            $('.gridSpot9').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 9) {
+            $('.gridSpot10').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 10) {
+            $('.gridSpot11').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 11) {
+            $('.gridSpot12').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 12) {
+            $('.gridSpot13').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 13) {
+            $('.gridSpot14').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 15) {
+            $('.gridSpot16').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 16) {
+            $('.gridSpot17').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 17) {
+            $('.gridSpot18').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 18) {
+            $('.gridSpot19').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 19) {
+            $('.gridSpot20').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 20) {
+            $('.gridSpot21').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 22) {
+            $('.gridSpot23').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 23) {
+            $('.gridSpot24').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 24) {
+            $('.gridSpot25').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 25) {
+            $('.gridSpot26').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 26) {
+            $('.gridSpot27').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 27) {
+            $('.gridSpot28').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 29) {
+            $('.gridSpot30').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 30) {
+            $('.gridSpot31').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 31) {
+            $('.gridSpot32').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 32) {
+            $('.gridSpot33').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 33) {
+            $('.gridSpot34').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 34) {
+            $('.gridSpot35').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 36) {
+            $('.gridSpot37').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 37) {
+            $('.gridSpot38').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 38) {
+            $('.gridSpot39').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 39) {
+            $('.gridSpot40').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 40) {
+            $('.gridSpot41').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 41) {
+            $('.gridSpot42').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 43) {
+            $('.gridSpot44').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 44) {
+            $('.gridSpot45').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 45) {
+            $('.gridSpot46').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 46) {
+            $('.gridSpot47').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 47) {
+            $('.gridSpot48').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 48) {
+            $('.gridSpot49').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+    }
+
+    function moveDown(position) {
+        if (position === 1) {
+            $('.gridSpot8').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 2) {
+            $('.gridSpot9').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 3) {
+            $('.gridSpot10').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 4) {
+            $('.gridSpot11').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 5) {
+            $('.gridSpot12').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 6) {
+            $('.gridSpot13').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 7) {
+            $('.gridSpot14').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 8) {
+            $('.gridSpot15').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 9) {
+            $('.gridSpot16').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 10) {
+            $('.gridSpot17').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 11) {
+            $('.gridSpot18').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 12) {
+            $('.gridSpot19').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 13) {
+            $('.gridSpot20').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 14) {
+            $('.gridSpot21').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 15) {
+            $('.gridSpot22').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 16) {
+            $('.gridSpot23').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 17) {
+            $('.gridSpot24').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 18) {
+            $('.gridSpot25').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 19) {
+            $('.gridSpot26').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 20) {
+            $('.gridSpot27').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 21) {
+            $('.gridSpot28').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 22) {
+            $('.gridSpot29').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 23) {
+            $('.gridSpot30').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 24) {
+            $('.gridSpot31').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 25) {
+            $('.gridSpot32').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 26) {
+            $('.gridSpot33').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 27) {
+            $('.gridSpot34').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 28) {
+            $('.gridSpot35').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 29) {
+            $('.gridSpot36').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 30) {
+            $('.gridSpot37').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 31) {
+            $('.gridSpot38').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 32) {
+            $('.gridSpot39').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 33) {
+            $('.gridSpot40').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 34) {
+            $('.gridSpot41').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 35) {
+            $('.gridSpot42').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 36) {
+            $('.gridSpot43').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 37) {
+            $('.gridSpot44').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 38) {
+            $('.gridSpot45').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 39) {
+            $('.gridSpot46').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 40) {
+            $('.gridSpot47').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 41) {
+            $('.gridSpot48').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+        if (position === 42) {
+            $('.gridSpot49').append("<img src=\'img/smiley.jpg\' height=\'68px\' width=\'68px\'>");
+        }
+
+    }
+
+    function moveRed(position) {
+        var red = setInterval(function () {
+            var current = currentPosition;
+            if (position === 1) {
+                $('.gridSpot1').css('background', 'white');
+                $('.gridSpot8').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot8').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 2) {
+                $('.gridSpot2').css('background', 'white');
+                $('.gridSpot9').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot9').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 3) {
+                $('.gridSpot3').css('background', 'white');
+                $('.gridSpot10').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot10').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 4) {
+                $('.gridSpot4').css('background', 'white');
+                $('.gridSpot11').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot11').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 5) {
+                $('.gridSpot5').css('background', 'white');
+                $('.gridSpot12').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot12').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 6) {
+                $('.gridSpot6').css('background', 'white');
+                $('.gridSpot13').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot13').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 7) {
+                $('.gridSpot7').css('background', 'white');
+                $('.gridSpot14').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot14').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 8) {
+                $('.gridSpot8').css('background', 'white');
+                $('.gridSpot15').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot15').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 9) {
+                $('.gridSpot9').css('background', 'white');
+                $('.gridSpot16').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot16').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 10) {
+                $('.gridSpot10').css('background', 'white');
+                $('.gridSpot17').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot17').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 11) {
+                $('.gridSpot11').css('background', 'white');
+                $('.gridSpot18').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot18').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 12) {
+                $('.gridSpot12').css('background', 'white');
+                $('.gridSpot19').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot19').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 13) {
+                $('.gridSpot13').css('background', 'white');
+                $('.gridSpot20').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot20').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 14) {
+                $('.gridSpot14').css('background', 'white');
+                $('.gridSpot21').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot21').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 15) {
+                $('.gridSpot15').css('background', 'white');
+                $('.gridSpot22').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot22').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 16) {
+                $('.gridSpot16').css('background', 'white');
+                $('.gridSpot23').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot23').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 17) {
+                $('.gridSpot17').css('background', 'white');
+                $('.gridSpot24').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot24').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 18) {
+                $('.gridSpot18').css('background', 'white');
+                $('.gridSpot25').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot25').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 19) {
+                $('.gridSpot19').css('background', 'white');
+                $('.gridSpot26').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot26').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 20) {
+                $('.gridSpot20').css('background', 'white');
+                $('.gridSpot27').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot27').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 21) {
+                $('.gridSpot21').css('background', 'white');
+                $('.gridSpot28').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot28').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 22) {
+                $('.gridSpot22').css('background', 'white');
+                $('.gridSpot29').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot29').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 23) {
+                $('.gridSpot23').css('background', 'white');
+                $('.gridSpot30').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot30').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 24) {
+                $('.gridSpot24').css('background', 'white');
+                $('.gridSpot31').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot31').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 25) {
+                $('.gridSpot25').css('background', 'white');
+                $('.gridSpot32').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot32').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 26) {
+                $('.gridSpot26').css('background', 'white');
+                $('.gridSpot33').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot33').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 27) {
+                $('.gridSpot27').css('background', 'white');
+                $('.gridSpot34').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot34').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 28) {
+                $('.gridSpot28').css('background', 'white');
+                $('.gridSpot35').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot35').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 29) {
+                $('.gridSpot29').css('background', 'white');
+                $('.gridSpot36').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot36').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 30) {
+                $('.gridSpot30').css('background', 'white');
+                $('.gridSpot37').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot37').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 31) {
+                $('.gridSpot31').css('background', 'white');
+                $('.gridSpot38').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot38').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 32) {
+                $('.gridSpot32').css('background', 'white');
+                $('.gridSpot39').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot39').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 33) {
+                $('.gridSpot33').css('background', 'white');
+                $('.gridSpot40').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot40').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 34) {
+                $('.gridSpot34').css('background', 'white');
+                $('.gridSpot41').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot41').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 35) {
+                $('.gridSpot35').css('background', 'white');
+                $('.gridSpot42').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot42').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 36) {
+                $('.gridSpot36').css('background', 'white');
+                $('.gridSpot43').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot43').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 37) {
+                $('.gridSpot37').css('background', 'white');
+                $('.gridSpot44').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot44').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 38) {
+                $('.gridSpot38').css('background', 'white');
+                $('.gridSpot45').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot45').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 39) {
+                $('.gridSpot39').css('background', 'white');
+                $('.gridSpot46').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot46').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 40) {
+                $('.gridSpot40').css('background', 'white');
+                $('.gridSpot47').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot47').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 41) {
+                $('.gridSpot41').css('background', 'white');
+                $('.gridSpot48').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot48').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 42) {
+                $('.gridSpot42').css('background', 'white');
+                $('.gridSpot49').css('background', 'red');
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot49').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+            }
+            if (position === 43) {
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot43').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+                $('.gridSpot43').css('background', 'white');
+            }
+            if (position === 44) {
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot44').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+                $('.gridSpot44').css('background', 'white');
+            }
+            if (position === 45) {
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot45').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+                $('.gridSpot45').css('background', 'white');
+            }
+            if (position === 46) {
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot46').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+                $('.gridSpot46').css('background', 'white');
+            }
+            if (position === 47) {
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot47').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+                $('.gridSpot47').css('background', 'white');
+            }
+            if (position === 48) {
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot48').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+                $('.gridSpot48').css('background', 'white');
+            }
+            if (position === 49) {
+                if (position === current) {
+                    ouchAudio.play();
+                    lives -= 1;
+                    $('h1').html("Lives x " + lives);
+                    $('.gridSpot49').css('background', 'white');
+                    setTimeout(function () {
+                        if (lives === 0) {
+                            overAudio.play();
+                            setTimeout(function () {
+                                alert("GAME OVER! Your score was " + points);
+                                var again = confirm("Would you like to play again?");
+                                if (again) {
+                                    location.reload();
+                                } else {
+                                    window.close();
+                                }
+                            }, 100);
+                        }
+                    }, 100);
+                    clearInterval(red);
+                }
+                $('.gridSpot49').css('background', 'white');
+            }
+
+            position += 7;
+            if (position > 49) {
+                clearInterval(red);
+            }
+        }, 50);
+    }
+
+</script>
 </body>
 </html>
