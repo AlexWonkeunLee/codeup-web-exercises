@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<div class="card" id="posts"></div>
+<div class="card border-primary" id="posts"></div>
 <button id="refreshList">Refresh</button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -18,8 +18,8 @@
         $('#posts').html("");
         fill.done(function(data){
             data.forEach(function(obj){
-                $('#posts').append("<div class='card-header mt-2'><h2>" + obj.title + "</h2></div>")
-                    .append("<div class='card-body'><em>" + obj.content + "</em>").append("<ul>");
+                $('#posts').append("<div class='card-header text-white bg-success'><h2>" + obj.title + "</h2></div>")
+                    .append("<div class='card-body text-white bg-danger'><em>" + obj.content + "</em>").append("<ul>");
                 obj.categories.forEach(function(category){
                     $('#posts').append("<li>" + category + "</li>")
                 });
