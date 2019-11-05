@@ -201,36 +201,49 @@ function notRegistered(array){
 // }
 
 // function that will take in a whole number from 1-10, and return number spelled out as string
-var randomNum = Math.floor(Math.random() * 10) + 1;
-console.log(returnNumberName(randomNum));
-function returnNumberName(num){
-    switch(num){
-        case 1:
-            return "one";
-        case 2:
-            return "two";
-        case 3:
-            return "three";
-        case 4:
-            return "four";
-        case 5:
-            return "five";
-        case 6:
-            return "six";
-        case 7:
-            return "seven";
-        case 8:
-            return "eight";
-        case 9:
-            return "nine";
-        case 10:
-            return "ten";
-        default:
-            return "not number between 1-10"
+// var randomNum = Math.floor(Math.random() * 10) + 1;
+// console.log(returnNumberName(randomNum));
+// function returnNumberName(num){
+//     switch(num){
+//         case 1:
+//             return "one";
+//         case 2:
+//             return "two";
+//         case 3:
+//             return "three";
+//         case 4:
+//             return "four";
+//         case 5:
+//             return "five";
+//         case 6:
+//             return "six";
+//         case 7:
+//             return "seven";
+//         case 8:
+//             return "eight";
+//         case 9:
+//             return "nine";
+//         case 10:
+//             return "ten";
+//         default:
+//             return "not number between 1-10"
+//     }
+//
+// }
+
+//function that returns youre welcome but when only passed object with property gratitude of thank you
+function welcome(obj){
+    if (obj.gratitude === "Thank you"){
+        return "You're Welcome";
     }
-
+    return false;
 }
-
+var thanks = {
+    gratitude: "Thank you"
+};
+var thank = "Thank you";
+console.log(welcome(thanks));
+console.log(welcome(thank));
 // var hamsters = [
 //     {
 //         name: "Hamtaro",
