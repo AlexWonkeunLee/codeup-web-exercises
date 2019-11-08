@@ -1,0 +1,80 @@
+
+body {
+    background-color: black;
+}
+
+#map {
+    width: 750px;
+    height: 500px;
+}
+
+.back{
+    background-color: black;
+}
+
+.forecast{
+    width: 33%;
+}
+.title {
+    font-size: 60px;
+}
+
+.city {
+    font-size: 20px;
+}
+
+.search {
+    position: relative;
+    left: 38%;
+}
+
+.glow {
+    !important;
+    color: #fff;
+    text-align: center;
+    font-family: 'Volkhov', serif;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00B9FF, 0 0 40px #00B9FF, 0 0 50px #00B9FF, 0 0 60px #00B9FF, 0 0 70px #00B9FF;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #00FFF3, 0 0 40px #00FFF3, 0 0 50px #00FFF3, 0 0 60px #00FFF3, 0 0 70px #00FFF3, 0 0 80px #00FFF3;
+    }
+}
+
+.loader {
+    border-radius: 50%;
+    border: 16px solid blue;
+    border-right-color: green;
+    border-bottom-color: red;
+    border-left-color: pink;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    left: 25%;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

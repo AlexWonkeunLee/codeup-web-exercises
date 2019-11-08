@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="css/weather_map.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
+    <link href="https://fonts.googleapis.com/css?family=Volkhov&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow title">Weather Channel</div>
+    <div class="glow city"></div>
+    <div class="container">
+        <div class="row forecasts">
+            <div class="col forecast">
+                <div class="card blue lighten-2">
+                    <div class="card-content">
+                        <span class="card-title todayWeather center-align"></span>
+                        <div class="back">
+                            <p class="center-align todayTemp white-text"></p>
+                            <p class="center-align todayPrec white-text"></p>
+                            <p class="center-align todayHumid white-text"></p>
+                            <p class="center-align todayWind white-text"></p>
+                        </div>
+                        <div class="center-align todayCast"></div>
+                        <div class="loading"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col forecast">
+                <div class="card blue lighten-2">
+                    <div class="card-content">
+                        <span class="card-title oneWeather center-align"></span>
+                        <div class="back">
+                            <p class="center-align oneTemp white-text"></p>
+                            <p class="center-align onePrec white-text"></p>
+                            <p class="center-align oneHumid white-text"></p>
+                            <p class="center-align oneWind white-text"></p>
+                        </div>
+                        <div class="center-align oneCast"></div>
+                        <div class="loading"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col forecast">
+                <div class="card blue lighten-2">
+                    <div class="card-content">
+                        <span class="card-title twoWeather center-align"></span>
+                        <div class="back">
+                            <p class="center-align twoTemp white-text"></p>
+                            <p class="center-align twoPrec white-text"></p>
+                            <p class="center-align twoHumid white-text"></p>
+                            <p class="center-align twoWind white-text"></p>
+                        </div>
+                        <div class="center-align twoCast"></div>
+                        <div class="loading"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row center">
+        <form class="col search">
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix"></i>
+                    <textarea id="address" class="materialize-textarea white-text"></textarea>
+                    <label for="address">Address</label>
+                    <button class="btn waves-effect waves-light" type="submit" name="search" id="search">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div id='map' class="row"></div>
+
+
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <script src="js/keys.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+    <script>
+        $(document).ajaxSend(function(){
+            $('.loading').fadeIn(250);
+        });
+        $(document).ajaxComplete(function(){
+            $('.loading').fadeOut(250);
+        });
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + weatherToken + "/29.4241,-98.4936").done(function(data) {
+            $('.loading').html("<div class='loader'></div>");
+            var todayDate = new Date(data.currently.time * 1000);
+            $('.todayWeather').append(months[todayDate.getMonth()] + " " + todayDate.getDate() + ", " + todayDate.getFullYear());
+            $('.todayTemp').append("Temperature: " + Math.round(data.currently.temperature) + "°F / " + toCelsius(data.currently.temperature) + "°C");
+            $('.todayPrec').append("Precipitation: " + Math.round(data.currently.precipProbability * 100) + "%");
+            $('.todayHumid').append("Humidity: " + Math.round(data.currently.humidity * 100) + "%");
+            $('.todayWind').append("Wind: " + data.currently.windSpeed + " mph");
+            $.get("data/weather.json").done(function(icon){
+                icon.forEach(function(obj){
+                    if(data.currently.icon === obj.icon){
+                        $('.todayCast').append("<img src='" + obj.pic + "'>");
+                    }
+                })
+            });
+            var oneDate = new Date(data.daily.data[1].time * 1000);
+            $('.oneWeather').append(months[oneDate.getMonth()] + " " + oneDate.getDate() + ", " + oneDate.getFullYear());
+            $('.oneTemp').append("Temperature = " + Math.round(average(data.daily.data[1].temperatureLow, data.daily.data[1].temperatureHigh)) + "°F / " + toCelsius(Math.round(average(data.daily.data[1].temperatureLow, data.daily.data[1].temperatureHigh))) + "°C");
+            $('.onePrec').append("Precipitation: " + Math.round(data.daily.data[1].precipProbability) * 100 + "%");
+            $('.oneHumid').append("Humidity: " + Math.round(data.daily.data[1].humidity * 100) + "%");
+            $('.oneWind').append("Wind: " + data.daily.data[1].windSpeed + " mph");
+            $.get("data/weather.json").done(function(icon){
+                icon.forEach(function(obj){
+                    if(data.currently.icon === obj.icon){
+                        $('.oneCast').append("<img src='" + obj.pic + "'>");
+                    }
+                })
+            });
+            var twoDate = new Date(data.daily.data[2].time * 1000);
+            $('.twoWeather').append(months[twoDate.getMonth()] + " " + twoDate.getDate() + ", " + twoDate.getFullYear());
+            $('.twoTemp').append("Temperature = " + Math.round(average(data.daily.data[2].temperatureLow, data.daily.data[2].temperatureHigh)) + "°F / " + toCelsius(Math.round(average(data.daily.data[2].temperatureLow, data.daily.data[2].temperatureHigh))) + "°C");
+            $('.twoPrec').append("Precipitation: " + Math.round(data.daily.data[2].precipProbability * 100) + "%");
+            $('.twoHumid').append("Humidity: " + Math.round(data.daily.data[2].humidity * 100) + "%");
+            $('.twoWind').append("Wind: " + data.daily.data[2].windSpeed + " mph");
+            $.get("data/weather.json").done(function(icon){
+                icon.forEach(function(obj){
+                    if(data.currently.icon === obj.icon){
+                        $('.twoCast').append("<img src='" + obj.pic + "'>");
+                    }
+                })
+            });
+        }).always(function(){
+            $('.loading').html("<div class='loader'></div>");
+        });
+
+        function toCelsius(temp){
+            return Math.round((temp - 32) * 5/9);
+        }
+        function average(temp1, temp2){
+            return ((temp1 + temp2) / 2);
+        }
+    </script>
+    <script>
+        mapboxgl.accessToken = accessToken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            zoom: 6,
+            center: [-98.4936, 29.4241]
+        });
+        map.doubleClickZoom.disable();
+        var marker = new mapboxgl.Marker({
+            draggable: true
+        })
+            .setLngLat([-98.4936, 29.4241])
+            .addTo(map);
+        $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/-98.4936,29.4241.json?access_token=" + accessToken).done(function(data){
+            $('.city').append(data.features[3].place_name);
+        });
+
+        $('#search').click(function(e){
+           e.preventDefault();
+           var address = $('#address').val();
+           $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + address + ".json?access_token=" + accessToken).done(function(data){
+               marker.remove();
+               var lng = data.features[0].center[0];
+               var lat = data.features[0].center[1];
+               marker = new mapboxgl.Marker({
+                   draggable: true
+               })
+
+                   .setLngLat([lng, lat])
+                   .addTo(map);
+               marker.on('dragend', onDragEnd);
+               map.flyTo({
+                   center: [lng,lat]
+               });
+               $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + weatherToken + "/" + lat + "," + lng).done(function(data) {
+                   $('.todayWeather').empty();
+                   $('.todayTemp').empty();
+                   $('.todayPrec').empty();
+                   $('.todayHumid').empty();
+                   $('.todayWind').empty();
+                   $('.todayCast').empty();
+                   $('.oneWeather').empty();
+                   $('.oneTemp').empty();
+                   $('.onePrec').empty();
+                   $('.oneHumid').empty();
+                   $('.oneWind').empty();
+                   $('.oneCast').empty();
+                   $('.twoWeather').empty();
+                   $('.twoTemp').empty();
+                   $('.twoPrec').empty();
+                   $('.twoHumid').empty();
+                   $('.twoWind').empty();
+                   $('.twoCast').empty();
+                   $('.city').empty();
+                   var todayDate = new Date(data.currently.time * 1000);
+                   $('.todayWeather').append(months[todayDate.getMonth()] + " " + todayDate.getDate() + ", " + todayDate.getFullYear());
+                   $('.todayTemp').append("Temperature: " + Math.round(data.currently.temperature) + "°F / " + toCelsius(data.currently.temperature) + "°C");
+                   $('.todayPrec').append("Precipitation: " + Math.round(data.currently.precipProbability * 100) + "%");
+                   $('.todayHumid').append("Humidity: " + Math.round(data.currently.humidity * 100) + "%");
+                   $('.todayWind').append("Wind: " + data.currently.windSpeed + " mph");
+                   $.get("data/weather.json").done(function(icon){
+                       icon.forEach(function(obj){
+                           if(data.currently.icon === obj.icon){
+                               $('.todayCast').append("<img src='" + obj.pic + "'>");
+                           }
+                       })
+                   });
+                   var oneDate = new Date(data.daily.data[1].time * 1000);
+                   $('.oneWeather').append(months[oneDate.getMonth()] + " " + oneDate.getDate() + ", " + oneDate.getFullYear());
+                   $('.oneTemp').append("Temperature = " + Math.round(average(data.daily.data[1].temperatureLow, data.daily.data[1].temperatureHigh)) + "°F / " + toCelsius(Math.round(average(data.daily.data[1].temperatureLow, data.daily.data[1].temperatureHigh))) + "°C");
+                   $('.onePrec').append("Precipitation: " + Math.round(data.daily.data[1].precipProbability * 100) + "%");
+                   $('.oneHumid').append("Humidity: " + Math.round(data.daily.data[1].humidity * 100) + "%");
+                   $('.oneWind').append("Wind: " + data.daily.data[1].windSpeed + " mph");
+                   $.get("data/weather.json").done(function(icon){
+                       icon.forEach(function(obj){
+                           if(data.currently.icon === obj.icon){
+                               $('.oneCast').append("<img src='" + obj.pic + "'>");
+                           }
+                       })
+                   });
+                   var twoDate = new Date(data.daily.data[2].time * 1000);
+                   $('.twoWeather').append(months[twoDate.getMonth()] + " " + twoDate.getDate() + ", " + twoDate.getFullYear());
+                   $('.twoTemp').append("Temperature = " + Math.round(average(data.daily.data[2].temperatureLow, data.daily.data[2].temperatureHigh)) + "°F / " + toCelsius(Math.round(average(data.daily.data[2].temperatureLow, data.daily.data[2].temperatureHigh))) + "°C");
+                   $('.twoPrec').append("Precipitation: " + Math.round(data.daily.data[2].precipProbability * 100) + "%");
+                   $('.twoHumid').append("Humidity: " + Math.round(data.daily.data[2].humidity * 100) + "%");
+                   $('.twoWind').append("Wind: " + data.daily.data[2].windSpeed + " mph");
+                   $.get("data/weather.json").done(function(icon){
+                       icon.forEach(function(obj){
+                           if(data.currently.icon === obj.icon){
+                               $('.twoCast').append("<img src='" + obj.pic + "'>");
+                           }
+                       })
+                   });
+                   $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + lng + "," + lat + ".json?access_token=" + accessToken).done(function(data) {
+                       console.log(data);
+                       $('.city').append(data.features[2].place_name);
+                   });
+               });
+               function toCelsius(temp){
+                   return Math.round((temp - 32) * 5/9);
+               }
+               function average(temp1, temp2){
+                   return ((temp1 + temp2) / 2);
+               }
+           });
+
+        });
+
+        function onDragEnd() {
+            var lngLat = marker.getLngLat();
+            $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + weatherToken + "/" + lngLat.lat + "," + lngLat.lng).done(function(data) {
+                $('.todayWeather').empty();
+                $('.todayTemp').empty();
+                $('.todayPrec').empty();
+                $('.todayHumid').empty();
+                $('.todayWind').empty();
+                $('.todayCast').empty();
+                $('.oneWeather').empty();
+                $('.oneTemp').empty();
+                $('.onePrec').empty();
+                $('.oneHumid').empty();
+                $('.oneWind').empty();
+                $('.oneCast').empty();
+                $('.twoWeather').empty();
+                $('.twoTemp').empty();
+                $('.twoPrec').empty();
+                $('.twoHumid').empty();
+                $('.twoWind').empty();
+                $('.twoCast').empty();
+                $('.city').empty();
+                var todayDate = new Date(data.currently.time * 1000);
+                $('.todayWeather').append(months[todayDate.getMonth()] + " " + todayDate.getDate() + ", " + todayDate.getFullYear());
+                $('.todayTemp').append("Temperature: " + Math.round(data.currently.temperature) + "°F / " + toCelsius(data.currently.temperature) + "°C");
+                $('.todayPrec').append("Precipitation: " + Math.round(data.currently.precipProbability * 100) + "%");
+                $('.todayHumid').append("Humidity: " + Math.round(data.currently.humidity * 100) + "%");
+                $('.todayWind').append("Wind: " + data.currently.windSpeed + " mph");
+                $.get("data/weather.json").done(function(icon){
+                    icon.forEach(function(obj){
+                        if(data.currently.icon === obj.icon){
+                            $('.todayCast').append("<img src='" + obj.pic + "'>");
+                        }
+                    })
+                });
+                var oneDate = new Date(data.daily.data[1].time * 1000);
+                $('.oneWeather').append(months[oneDate.getMonth()] + " " + oneDate.getDate() + ", " + oneDate.getFullYear());
+                $('.oneTemp').append("Temperature = " + Math.round(average(data.daily.data[1].temperatureLow, data.daily.data[1].temperatureHigh)) + "°F / " + toCelsius(Math.round(average(data.daily.data[1].temperatureLow, data.daily.data[1].temperatureHigh))) + "°C");
+                $('.onePrec').append("Precipitation: " + Math.round(data.daily.data[1].precipProbability * 100) + "%");
+                $('.oneHumid').append("Humidity: " + Math.round(data.daily.data[1].humidity * 100) + "%");
+                $('.oneWind').append("Wind: " + data.daily.data[1].windSpeed + " mph");
+                $.get("data/weather.json").done(function(icon){
+                    icon.forEach(function(obj){
+                        if(data.currently.icon === obj.icon){
+                            $('.oneCast').append("<img src='" + obj.pic + "'>");
+                        }
+                    })
+                });
+                var twoDate = new Date(data.daily.data[2].time * 1000);
+                $('.twoWeather').append(months[twoDate.getMonth()] + " " + twoDate.getDate() + ", " + twoDate.getFullYear());
+                $('.twoTemp').append("Temperature = " + Math.round(average(data.daily.data[2].temperatureLow, data.daily.data[2].temperatureHigh)) + "°F / " + toCelsius(Math.round(average(data.daily.data[2].temperatureLow, data.daily.data[2].temperatureHigh))) + "°C");
+                $('.twoPrec').append("Precipitation: " + Math.round(data.daily.data[2].precipProbability * 100) + "%");
+                $('.twoHumid').append("Humidity: " + Math.round(data.daily.data[2].humidity * 100) + "%");
+                $('.twoWind').append("Wind: " + data.daily.data[2].windSpeed + " mph");
+                $.get("data/weather.json").done(function(icon){
+                    icon.forEach(function(obj){
+                        if(data.currently.icon === obj.icon){
+                            $('.twoCast').append("<img src='" + obj.pic + "'>");
+                        }
+                    })
+                });
+                $.get("https://api.mapbox.com/geocoding/v5/mapbox.places/" + lngLat.lng + "," + lngLat.lat + ".json?access_token=" + accessToken).done(function(data) {
+                    console.log(data);
+                    $('.city').append(data.features[2].place_name);
+                });
+            });
+            function toCelsius(temp){
+                return Math.round((temp - 32) * 5/9);
+            }
+            function average(temp1, temp2){
+                return ((temp1 + temp2) / 2);
+            }
+        }
+        marker.on('dragend', onDragEnd);
+
+
+
+    </script>
+
+</body>
+</html>
