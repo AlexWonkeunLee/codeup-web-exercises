@@ -232,18 +232,32 @@ function notRegistered(array){
 // }
 
 //function that returns youre welcome but when only passed object with property gratitude of thank you
-function welcome(obj){
-    if (obj.gratitude === "Thank you"){
-        return "You're Welcome";
-    }
-    return false;
+// function welcome(obj){
+//     if (obj.gratitude === "Thank you"){
+//         return "You're Welcome";
+//     }
+//     return false;
+// }
+// var thanks = {
+//     gratitude: "Thank you"
+// };
+// var thank = "Thank you";
+// console.log(welcome(thanks));
+// console.log(welcome(thank));
+
+// write a loop that returns array of even
+function evenArray(array){
+    let even = [];
+    array.forEach(function(num){
+        if (num % 2 === 0){
+            even.push(num);
+        }
+    });
+    return even;
 }
-var thanks = {
-    gratitude: "Thank you"
-};
-var thank = "Thank you";
-console.log(welcome(thanks));
-console.log(welcome(thank));
+let array = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(evenArray(array));
+
 // var hamsters = [
 //     {
 //         name: "Hamtaro",
