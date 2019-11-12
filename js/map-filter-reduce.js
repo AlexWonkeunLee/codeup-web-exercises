@@ -62,3 +62,20 @@ let userNames = users.reduce((names, user) => {
     return names;
 }, []);
 console.log(`Your instructors are ${userNames.join(", ")}`);
+
+let uniqueLanguages = users.reduce((lang, user) => {
+   if (lang.length === 0){
+       user.languages.forEach(type => {
+           lang.push(type);
+       })
+   }
+   else {
+       user.languages.forEach(type => {
+           if(!lang.includes(type)){
+               lang.push(type);
+           }
+       })
+   }
+   return lang;
+}, []);
+console.log(uniqueLanguages);
