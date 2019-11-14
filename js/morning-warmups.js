@@ -246,17 +246,31 @@ function notRegistered(array){
 // console.log(welcome(thank));
 
 // write a loop that returns array of even
-function evenArray(array){
-    let even = [];
-    array.forEach(function(num){
-        if (num % 2 === 0){
-            even.push(num);
+// function evenArray(array){
+//     let even = [];
+//     array.forEach(function(num){
+//         if (num % 2 === 0){
+//             even.push(num);
+//         }
+//     });
+//     return even;
+// }
+// let array = [1, 2, 3, 4, 5, 6, 7, 8];
+// console.log(evenArray(array));
+
+function evenPromise(num) {
+    return new Promise((resolve, reject) => {
+        if (num % 2 === 0) {
+            resolve();
         }
-    });
-    return even;
+        else{
+            reject();
+        }
+    })
 }
-let array = [1, 2, 3, 4, 5, 6, 7, 8];
-console.log(evenArray(array));
+
+evenPromise(2).then(() => console.log("This even"));
+evenPromise(3).catch(() => console.log("This odd"));
 
 // var hamsters = [
 //     {
