@@ -258,19 +258,27 @@ function notRegistered(array){
 // let array = [1, 2, 3, 4, 5, 6, 7, 8];
 // console.log(evenArray(array));
 
-function evenPromise(num) {
+// function evenPromise(num) {
+//     return new Promise((resolve, reject) => {
+//         if (num % 2 === 0) {
+//             resolve();
+//         }
+//         else{
+//             reject();
+//         }
+//     })
+// }
+//
+// evenPromise(2).then(() => console.log("This even"));
+// evenPromise(3).catch(() => console.log("This odd"));
+
+// function that returns promise, resolves message of hello
+function helloPromise() {
     return new Promise((resolve, reject) => {
-        if (num % 2 === 0) {
-            resolve();
-        }
-        else{
-            reject();
-        }
+        document.ready(resolve($('body').html("Hello")));
     })
 }
-
-evenPromise(2).then(() => console.log("This even"));
-evenPromise(3).catch(() => console.log("This odd"));
+helloPromise().then();
 
 // var hamsters = [
 //     {
