@@ -273,12 +273,19 @@ function notRegistered(array){
 // evenPromise(3).catch(() => console.log("This odd"));
 
 // function that returns promise, resolves message of hello
-function helloPromise() {
-    return new Promise((resolve, reject) => {
-        document.ready(resolve($('body').html("Hello")));
-    })
+// function helloPromise() {
+//     return new Promise((resolve, reject) => {
+//         document.ready(resolve($('body').html("Hello")));
+//     })
+// }
+// helloPromise().then();
+
+// function to return pi to 6 places
+function returnPi(){
+    return parseFloat(Math.PI.toFixed(6));
 }
-helloPromise().then();
+console.log(returnPi());
+
 
 // var hamsters = [
 //     {
